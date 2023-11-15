@@ -1,2 +1,2 @@
 # Hotelier
-A web application for rooms reservation.
+A web application for rooms reservations.
