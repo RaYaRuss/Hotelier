@@ -1,23 +1,39 @@
 spring:
-  datasource:
-    driverClassName: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/hotelier?allowPublicKeyRetrieval=true&useSSL=false&createDatabaseIfNotExist=true&serverTimezone=UTC
-    username: ${MYSQL_USER:}
-    password: ${MYSQL_PASSWORD:}
   jpa:
-    database-platform: org.hibernate.dialect.MySQLDialect
-    defer-datasource-initialization: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+        format_sql: 'TRUE'
     hibernate:
       ddl-auto: update
-  sql:
-    init:
-      mode: never
+    open-in-view: 'false'
   mvc:
-    hidden method:
+    hiddenmethod:
       filter:
-        enabled: true
-
-default.admin.pass: ${DEFAULT_ADMIN_PASS:Moreto123}
+        enabled: 'true'
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    password: ${db_password}
+    username: ${db_username}
+    url: jdbc:mysql://localhost:3306/hotelier?allowPublicKeyRetrieval=true&useSSL=false&createDatabaseIfNotExist=true&serverTimezone=UTC
+  thymeleaf: # Thymeleaf
+    cache: false
+    mode: HTML
+    encoding: UTF-8
+    prefix: file:src/main/resources/templates/
+  web:
+    resources:
+      static-locations: file:src/main/resources/static/
+      cache:
+        period: 0
 logging:
   level:
-    org.springframework: DEBUG
+    org:
+      hibernate:
+        type:
+          descriptor: TRACE
+        SQL: DEBUG
+      nodeValue: WARN
+    blog: WARN
+server:
+  port: 8080
