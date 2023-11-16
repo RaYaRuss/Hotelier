@@ -26,7 +26,8 @@ public class UserEntity extends BaseEntity{
     private String lastName;
 
     private boolean active;
-    private String agencyName;
+    @ManyToOne
+    private AgencyEntity agency;
 
     public String getEmail() {
         return email;
