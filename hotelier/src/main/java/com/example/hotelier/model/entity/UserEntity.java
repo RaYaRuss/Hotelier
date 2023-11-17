@@ -21,16 +21,37 @@ public class UserEntity extends BaseEntity{
 
     private String password;
 
+    private String confirmPassword;
+
     private String firstName;
 
     private String lastName;
 
     private boolean active;
     @ManyToOne
-    private AgencyEntity agency;
+    private AgencyEntity travelAgency;
+
+    public UserEntity() {
+    }
 
     public String getEmail() {
         return email;
+    }
+
+    public AgencyEntity getTravelAgency() {
+        return travelAgency;
+    }
+
+    public void setTravelAgency(AgencyEntity travelAgency) {
+        this.travelAgency = travelAgency;
+    }
+
+    public String getConfirmPassword() {
+        return confirmPassword;
+    }
+
+    public void setConfirmPassword(String confirmPassword) {
+        this.confirmPassword = confirmPassword;
     }
 
     public UserEntity setEmail(String email) {
