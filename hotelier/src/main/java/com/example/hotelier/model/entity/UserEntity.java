@@ -43,7 +43,9 @@ public class UserEntity extends BaseEntity{
     }
 
     public void setTravelAgency(AgencyEntity travelAgency) {
+
         this.travelAgency = travelAgency;
+
     }
 
     public String getConfirmPassword() {

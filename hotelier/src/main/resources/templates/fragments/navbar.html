@@ -37,7 +37,7 @@
                     <div class="logged-user">
                         Welcome, <th:block sec:authentication="name"></th:block>!
                     </div>
-                    <form th:method="post"
+                    <form th:method="get"
                           th:action="@{/users/logout}">
                         <input type="submit" class="btn btn-link" value="Logout"/>
                     </form>

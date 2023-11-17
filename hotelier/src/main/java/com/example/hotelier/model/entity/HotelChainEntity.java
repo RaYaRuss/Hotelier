@@ -1,11 +1,28 @@
 package com.example.hotelier.model.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
 @Table(name = "hotel_chains")
 public class HotelChainEntity extends BaseEntity {
+    @Column(unique = true)
+    private String name;
+
+    @OneToMany(
+            fetch = FetchType.LAZY,
+            mappedBy = "hotelChain"
+    )
+    private List<HotelEntity> hotels;
+
+    public List<HotelEntity> getHotels() {
+        return hotels;
+    }
+
+    public void setHotels(List<HotelEntity> hotels) {
+        this.hotels = hotels;
+    }
 
     public String getName() {
         return name;
@@ -15,14 +32,4 @@ public class HotelChainEntity extends BaseEntity {
         this.name = name;
     }
 
-    public int getHotelsCount() {
-        return hotelsCount;
-    }
-
-    public void setHotelsCount(int hotelsCount) {
-        this.hotelsCount = hotelsCount;
-    }
-
-    private String name;
-    private int hotelsCount;
 }

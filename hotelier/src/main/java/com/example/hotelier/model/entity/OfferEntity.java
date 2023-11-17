@@ -5,19 +5,24 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.FutureOrPresent;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Positive;
+import org.hibernate.annotations.JdbcTypeCode;
 
 import java.math.BigDecimal;
+import java.sql.Types;
 import java.util.Date;
+import java.util.UUID;
 
 @Entity
     @Table(name = "offers")
     public class OfferEntity extends BaseEntity{
 
-        @Column(nullable = false)
-        private String description;
-
+        @JdbcTypeCode((Types.VARCHAR))
+        private UUID uuid;
         @ManyToOne
         private HotelEntity hotel;
+
+        @Column(nullable = false)
+        private String description;
 
         @Enumerated(EnumType.STRING)
         private RoomTypeEnum roomType;
@@ -30,10 +35,23 @@ import java.util.Date;
 
         @Column(nullable = false)
         private BigDecimal price;
+        @Positive
+        @Column(nullable = false)
+        private int nightsCount;
+        @Column(nullable = false)
+        private String location;
 
         @FutureOrPresent
         @Column(nullable = false)
         private Date startDate;
+
+    public UUID getUuid() {
+        return uuid;
+    }
+
+    public void setUuid(UUID uuid) {
+        this.uuid = uuid;
+    }
 
     public String getDescription() {
         return description;
@@ -107,10 +125,5 @@ import java.util.Date;
         this.location = location;
     }
 
-    @Positive
-         @Column(nullable = false)
-         private int nightsCount;
-         @Column(nullable = false)
-        private String location;
 
     }
