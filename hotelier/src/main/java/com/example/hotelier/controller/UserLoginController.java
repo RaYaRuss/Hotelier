@@ -7,16 +7,11 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class UserLoginController {
 
-    @GetMapping("/login")
+    @GetMapping("/users/login")
     public ModelAndView login() {
 
         return new ModelAndView("auth-login");
     }
 
-    @GetMapping("/register")
-    public ModelAndView register() {
 
-        return new ModelAndView("auth-register");
-
-    }
 }
