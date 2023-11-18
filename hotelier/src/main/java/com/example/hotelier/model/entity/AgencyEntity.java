@@ -1,10 +1,13 @@
 package com.example.hotelier.model.entity;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -13,12 +16,14 @@ public class AgencyEntity extends BaseEntity{
 
     private String name;
 
-    @OneToMany(mappedBy = "travelAgency")
-    private Set<UserEntity> agents;
+    @OneToMany(
+            fetch = FetchType.LAZY,
+            mappedBy = "travelAgency")
+    private List<UserEntity> agents;
 
     public AgencyEntity(String name, Set<UserEntity> agents) {
         this.name = name;
-        this.agents = new HashSet<>();
+        this.agents = new ArrayList<>();
     }
 
     public AgencyEntity(String name) {
@@ -26,7 +31,7 @@ public class AgencyEntity extends BaseEntity{
     }
 
     public AgencyEntity() {
-        this.agents =  new HashSet<>();
+        this.agents =  new ArrayList<>();
     }
 
     public String getName() {
@@ -37,11 +42,11 @@ public class AgencyEntity extends BaseEntity{
         this.name = name;
     }
 
-    public Set<UserEntity> getAgents() {
+    public List<UserEntity> getAgents() {
         return agents;
     }
 
-    public void setAgents(Set<UserEntity> agents) {
+    public void setAgents(List<UserEntity> agents) {
         this.agents = agents;
     }
 }
