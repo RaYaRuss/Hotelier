@@ -13,10 +13,6 @@ public class HotelEntity extends BaseEntity {
     @Enumerated(EnumType.STRING)
     private HotelCategoryEnum stars;
 
-    private String imageUrl;
-    private String location;
-    private int renovated;
-
     @ManyToOne
     private HotelChainEntity hotelChain;
 
@@ -24,67 +20,38 @@ public class HotelEntity extends BaseEntity {
         return hotelChain;
     }
 
-    public void setHotelChain(HotelChainEntity hotelChain) {
+    public HotelEntity setHotelChain(HotelChainEntity hotelChain) {
         this.hotelChain = hotelChain;
+        return this;
     }
 
     public HotelCategoryEnum getStars() {
         return stars;
     }
 
-    public void setStars(HotelCategoryEnum stars) {
+    public HotelEntity setStars(HotelCategoryEnum stars) {
+
         this.stars = stars;
+        return this;
     }
 
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
+    public HotelEntity setName(String name) {
+
         this.name = name;
+        return this;
     }
 
     public String getDescription() {
         return description;
     }
 
-    public void setDescription(String description) {
+    public HotelEntity setDescription(String description) {
+
         this.description = description;
+        return this;
     }
-
-    public String getImageUrl() {
-        return imageUrl;
-    }
-
-    public void setImageUrl(String imageUrl) {
-        this.imageUrl = imageUrl;
-    }
-
-    public String getLocation() {
-        return location;
-    }
-
-    public void setLocation(String location) {
-        this.location = location;
-    }
-
-    public int getRenovated() {
-        return renovated;
-    }
-
-    public void setRenovated(int renovated) {
-        this.renovated = renovated;
-    }
-
-    public HotelChainEntity getChain() {
-        return chain;
-    }
-
-    public void setChain(HotelChainEntity chain) {
-        this.chain = chain;
-    }
-
-    @ManyToOne
-    private HotelChainEntity chain;
-
 }

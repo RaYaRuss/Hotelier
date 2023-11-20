@@ -7,6 +7,7 @@ spring:
     hibernate:
       ddl-auto: update
     open-in-view: 'false'
+    defer-datasource-initialization: true
   mvc:
     hiddenmethod:
       filter:
@@ -15,7 +16,11 @@ spring:
     driverClassName: com.mysql.cj.jdbc.Driver
     password: ${db_password}
     username: ${db_username}
+
     url: jdbc:mysql://localhost:3306/hotelier?allowPublicKeyRetrieval=true&useSSL=false&createDatabaseIfNotExist=true&serverTimezone=UTC
+  sql:
+    init:
+      mode: never
   thymeleaf: # Thymeleaf
     cache: false
     mode: HTML
