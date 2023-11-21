@@ -13,7 +13,9 @@
 
 <div class="container">
     <h2 class="text-center text-white">Upload Offer</h2>
-    <form method="POST" 
+    <form th:method="POST"
+          th:action="@{/offer/add}"
+          th:object="${createOfferDTO}"
           class="main-form mx-auto col-md-8 d-flex flex-column justify-content-center">
 
         <!-- Room Type  -->
@@ -21,15 +23,18 @@
             <div class="form-group col-md-6 mb-3">
                 <label class="text-center text-white font-weight-bold" for="roomType">Room type</label>
                 <select id="roomType"
+                        th:field="*{roomType}"
+                        th:errorclass="is-invalid"
                         name="roomType"
                         class="form-control">
                     <option value="">- Select room type -</option>
-                    <option th:each="e : ${T(com.example.hotelier.model.enums.RoomTypeEnum).values()}"
-                            th:text = "${e}"
-                            th:value = "${e}">
+                    <option th:each="r : ${T(com.example.hotelier.model.enums.RoomTypeEnum).values()}"
+                            th:text = "${r}"
+                            th:value = "${r}"
+                            th:selected = "${r} == *{roomType}">
                     </option>
                 </select>
-                <p class="errors alert alert-danger">
+                <p class="invalid-feedback errors alert alert-danger">
                     Room type is required.
                 </p>
             </div>
@@ -52,16 +57,18 @@
 
             <!-- price -->
             <div class="form-group col-md-6 mb-3">
-                <label for="price" class="text-white font-weight-bold">Price</label>
+                <label for="price" class="text-white font-weight-bold">Total price</label>
                 <input id="price"
-                       name = "price"
+                       th:field = "*{price}"
+                       th:errorclass="is-invalid"
                        type="number"
                        class="form-control"
-                       placeholder="Suggested price"/>
-                <p  class="errors alert alert-danger">
-                    Suggested price is required.
+                       placeholder="Room total price"/>
+                <p  class="invalid-feedback errors alert alert-danger">
+                    Total price is required.
                 </p>
             </div>
+            <!-- End - price -->
         </div>
 
         <!-- Hotel -->
@@ -84,16 +91,20 @@
 
             <div class="form-group col-md-6 mb-3">
                 <label class="text-center text-white font-weight-bold" for="category">Category</label>
-                <select id="category"
-                        name = "category"
+                <select
+                        id="category"
+                        th:name="category"
+                        th:field = "*{category}"
+                        th:errorclass="is-invalid"
                         class="form-control">
                     <option value="">- Select hotel stars -</option>
-                    <option th:each="e : ${T(com.example.hotelier.model.enums.HotelCategoryEnum).values()}"
-                            th:text = "${e}"
-                            th:value = "${e}">
+                    <option th:each="c : ${T(com.example.hotelier.model.enums.HotelCategoryEnum).values()}"
+                            th:text = "${c}"
+                            th:value = "${c}"
+                            th:selected="${c} == *{category}">
                     </option>
                 </select>
-                <p class="errors alert alert-danger">
+                <p class="invalid-feedback errors alert alert-danger">
                     Category is required.
                 </p>
             </div>
@@ -104,11 +115,13 @@
             <div class="form-group col-md-6 mb-3">
                 <label for="startDate" class="text-white font-weight-bold">Start date</label>
                 <input id="startDate"
-                       name="startDate"
+                       th:name="startDate"
+                       th:field="*{startDate}"
+                       th:errorclass="is-invalid"
                        type="text"
                        class="form-control"
                        placeholder="Start date"/>
-                <p class="errors alert alert-danger">
+                <p class="invalid-feedback errors alert alert-danger">
                     Start date is required.
                 </p>
             </div>
@@ -117,11 +130,13 @@
             <div class="form-group col-md-6 mb-3">
                 <label for="nightsCount" class="text-white font-weight-bold">Nights Count</label>
                 <input id="nightsCount"
-                       name="nightsCount"
+                       th:name="nightsCount"
+                       th:field="*{nightsCount}"
+                       th:errorclass="is-invalid"
                        type="number" min="0" max="900000" step="1"
                        class="form-control"
                        placeholder="Number of nights"/>
-                <p class="errors alert alert-danger">
+                <p class="invalid-feedback errors alert alert-danger">
                     Number of nights is required.
                 </p>
             </div>
@@ -131,11 +146,13 @@
         <div class="form-group">
             <label class="text-white font-weight-bold" for="description">Description</label>
             <textarea id="description"
-                      name="description"
+                      th:name="description"
+                      th:field="*{description}"
+                      th:errorclass="is-invalid"
                       type="textarea"
                       class="form-control" rows="3"
                       placeholder="Description"></textarea>
-            <p class="errors alert alert-danger">
+            <p class="invalid-feedback rrors alert alert-danger">
                 Description is required.
             </p>
         </div>
@@ -144,11 +161,12 @@
         <div class="form-group">
             <label class="text-white font-weight-bold" for="imageUrl">Image URL</label>
             <input id="imageUrl"
-                   name="imageUrl"
+                   th:field="*{imageUrl}"
+                   th:errorclass="is-invalid"
                    type="url"
                    class="form-control"
                    placeholder="Put room image URL here">
-            <p class="errors alert alert-danger">
+            <p class="invalid-feedback errors alert alert-danger">
                 Room image URL is required.
             </p>
         </div>

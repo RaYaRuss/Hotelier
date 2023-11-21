@@ -17,7 +17,7 @@ import java.util.UUID;
 public class OfferServiceImpl implements OfferService {
     @Override
     public UUID createOffer(CreateOfferDTO createOfferDTO) {
-        return null;
+        return UUID.randomUUID();
     }
 
 //    public final OfferRepository offerRepository;
