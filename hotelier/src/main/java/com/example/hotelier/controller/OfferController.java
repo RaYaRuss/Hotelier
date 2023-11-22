@@ -31,7 +31,7 @@ public class OfferController {
     public String add(Model model) {
 
         if (!model.containsAttribute("createOfferDTO")) {
-            model.addAttribute("createOfferDTO", new CreateOfferDTO());
+            model.addAttribute("createOfferDTO", CreateOfferDTO.empty());
         }
 
         model.addAttribute("hotelChains", hotelChainService.getAllHotelChains());
@@ -40,7 +40,8 @@ public class OfferController {
 
     @PostMapping("/offer/add")
     public String add( @Valid CreateOfferDTO createOfferDTO,
-                      BindingResult bindingResult, RedirectAttributes rAtt) {
+                      BindingResult bindingResult,
+                       RedirectAttributes rAtt) {
 
         if(bindingResult.hasErrors()){
             rAtt.addFlashAttribute("createOfferDTO", createOfferDTO);
@@ -48,12 +49,12 @@ public class OfferController {
             return "redirect:/offer/add";
         }
 
-            offerService.createOffer(createOfferDTO);
+            UUID newOfferUUID = offerService.createOffer(createOfferDTO);
 
-        return "index";
+        return "redirect:/offer/" + newOfferUUID;
     }
 
-    @GetMapping("/offer/{uuid}/details")
+    @GetMapping("/offer/{uuid}")
     public String details(@PathVariable("uuid") UUID uuid) {
         return("details");
     }

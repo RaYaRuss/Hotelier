@@ -7,37 +7,32 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
 import jakarta.validation.constraints.Size;
 
-import java.math.BigDecimal;
 public record CreateOfferDTO(
         @NotEmpty @Size(min = 5, max = 512)
         String description,
         @Positive
         @NotNull
         Long hotelId,
-        //UserEntity seller,
-
-        HotelCategoryEnum category,
-
+       @NotNull
         RoomTypeEnum roomType,
         @NotEmpty
         String imageUrl,
         @Positive
         @NotNull
-        BigDecimal price,
+        Integer price,
         @Positive
         @NotNull
-        int nightsCount,
-        String location,
-        @Positive
+        Integer nightsCount,
+
         @NotNull
         String startDate) {
 
     public static CreateOfferDTO empty() {
 
-        return new CreateOfferDTO(null,null, null,null, null, null, 0, null, null);
+        return new CreateOfferDTO(null,null, null,null, null, null, null);
     }
 
-    public CreateOfferDTO() {
-      this   (null, null, null, null, null, null, 0, null, null);
-    }
+//    public CreateOfferDTO() {
+//      this   (null, null, null, null, null, null, null);
+//    }
 }

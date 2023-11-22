@@ -1,8 +1,11 @@
 package com.example.hotelier.model.entity;
 
 import com.example.hotelier.model.enums.HotelCategoryEnum;
-import jakarta.persistence.*;
-
+import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
 @Entity
 @Table(name = "hotels")
 public class HotelEntity extends BaseEntity {
@@ -11,7 +14,7 @@ public class HotelEntity extends BaseEntity {
     private String description;
 
     @Enumerated(EnumType.STRING)
-    private HotelCategoryEnum stars;
+    private HotelCategoryEnum category;
 
     @ManyToOne
     private HotelChainEntity hotelChain;
@@ -25,13 +28,13 @@ public class HotelEntity extends BaseEntity {
         return this;
     }
 
-    public HotelCategoryEnum getStars() {
-        return stars;
+    public HotelCategoryEnum getCategory() {
+        return category;
     }
 
-    public HotelEntity setStars(HotelCategoryEnum stars) {
+    public HotelEntity setCategory(HotelCategoryEnum category) {
 
-        this.stars = stars;
+        this.category = category;
         return this;
     }
 

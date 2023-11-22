@@ -4,6 +4,7 @@ import com.example.hotelier.model.enums.RoomTypeEnum;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.FutureOrPresent;
 import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
 import org.hibernate.annotations.JdbcTypeCode;
 
@@ -13,17 +14,17 @@ import java.util.UUID;
 
     @Entity
     @Table(name = "offers")
-    public class OfferEntity extends BaseEntity{
+    public class OfferEntity extends BaseEntity {
 
-        @JdbcTypeCode((Types.VARCHAR))
+        @JdbcTypeCode(Types.VARCHAR)
         private UUID uuid;
-       // @NotNull
+        @NotEmpty
+        private String description;
+        @NotNull
         @ManyToOne
         private HotelEntity hotel;
 
-        @Column(nullable = false)
-        private String description;
-
+        @NotNull
         @Enumerated(EnumType.STRING)
         private RoomTypeEnum roomType;
 
@@ -33,106 +34,108 @@ import java.util.UUID;
         @NotEmpty
         private String imageUrl;
 
-        @Column(nullable = false)
-        private BigDecimal price;
         @Positive
         @Column(nullable = false)
         private int nightsCount;
         @Column(nullable = false)
-        private String location;
+        private BigDecimal price;
 
-        @FutureOrPresent
+        @Column
+        private String tradeFair;
+
         @Column(nullable = false)
         private String startDate;
 
-    public UUID getUuid() {
-        return uuid;
-    }
+        public UUID getUuid() {
+            return uuid;
+        }
 
-    public OfferEntity setUuid(UUID uuid) {
-        this.uuid = uuid;
-        return this;
-    }
+        public OfferEntity setUuid(UUID uuid) {
+            this.uuid = uuid;
+            return this;
+        }
 
-    public HotelEntity getHotel() {
-        return hotel;
-    }
+        public String getDescription() {
+            return description;
+        }
 
-    public OfferEntity setHotel(HotelEntity hotel) {
-        this.hotel = hotel;
-        return this;
-    }
+        public OfferEntity setDescription(String description) {
+            this.description = description;
+            return this;
+        }
 
-    public String getDescription() {
-        return description;
-    }
+        public HotelEntity getHotel() {
+            return hotel;
+        }
 
-    public OfferEntity setDescription(String description) {
-        this.description = description;
-        return this;
-    }
+        public OfferEntity setHotel(HotelEntity hotel) {
+            this.hotel = hotel;
+            return this;
+        }
 
-    public RoomTypeEnum getRoomType() {
-        return roomType;
-    }
+        public RoomTypeEnum getRoomType() {
+            return roomType;
+        }
 
-    public OfferEntity setRoomType(RoomTypeEnum roomType) {
-        this.roomType = roomType;
-        return this;
-    }
+        public OfferEntity setRoomType(RoomTypeEnum roomType) {
+            this.roomType = roomType;
+            return this;
+        }
 
-    public UserEntity getSeller() {
-        return seller;
-    }
+        public UserEntity getSeller() {
+            return seller;
+        }
 
-    public OfferEntity setSeller(UserEntity seller) {
-        this.seller = seller;
-        return this;
-    }
+        public OfferEntity setSeller(UserEntity seller) {
+            this.seller = seller;
+            return this;
+        }
 
-    public String getImageUrl() {
-        return imageUrl;
-    }
+        public String getImageUrl() {
+            return imageUrl;
+        }
 
-    public OfferEntity setImageUrl(String imageUrl) {
-        this.imageUrl = imageUrl;
-        return this;
-    }
+        public OfferEntity setImageUrl(String imageUrl) {
+            this.imageUrl = imageUrl;
+            return this;
+        }
 
-    public BigDecimal getPrice() {
-        return price;
-    }
+        public int getNightsCount() {
+            return nightsCount;
+        }
 
-    public OfferEntity setPrice(BigDecimal price) {
-        this.price = price;
-        return this;
-    }
+        public OfferEntity setNightsCount(int nightsCount) {
+            this.nightsCount = nightsCount;
+            return this;
+        }
 
-    public int getNightsCount() {
-        return nightsCount;
-    }
+        public BigDecimal getPrice() {
+            return price;
+        }
 
-    public OfferEntity setNightsCount(int nightsCount) {
-        this.nightsCount = nightsCount;
-        return this;
-    }
+        public OfferEntity setPrice(BigDecimal price) {
+            this.price = price;
+            return this;
+        }
 
-    public String getLocation() {
-        return location;
-    }
+        public String getTradeFair() {
+            return tradeFair;
+        }
 
-    public OfferEntity setLocation(String location) {
-        this.location = location;
-        return this;
-    }
+        public OfferEntity setTradeFair(String tradeFair) {
+            this.tradeFair = tradeFair;
+            return this;
+        }
 
-    public String getStartDate() {
-        return startDate;
-    }
+        public String getStartDate() {
+            return startDate;
+        }
 
-    public OfferEntity setStartDate(String startDate) {
-        this.startDate = startDate;
-        return this;
-    }
+        public OfferEntity setStartDate(String startDate) {
+            this.startDate = startDate;
+            return this;
+        }
 
-}
+        public OfferEntity() {
+        }
+    }
