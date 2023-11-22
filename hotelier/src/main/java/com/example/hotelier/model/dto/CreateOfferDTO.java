@@ -2,6 +2,7 @@ package com.example.hotelier.model.dto;
 
 import com.example.hotelier.model.enums.HotelCategoryEnum;
 import com.example.hotelier.model.enums.RoomTypeEnum;
+import com.example.hotelier.model.validation.StartDateNotInTheFuture;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
@@ -23,7 +24,7 @@ public record CreateOfferDTO(
         @Positive
         @NotNull
         Integer nightsCount,
-
+        // @StartDateNotInTheFuture
         @NotNull
         String startDate) {
 
