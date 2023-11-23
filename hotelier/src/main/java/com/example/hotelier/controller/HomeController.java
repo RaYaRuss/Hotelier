@@ -13,4 +13,12 @@ public class HomeController {
         return new ModelAndView("index");
 
     }
+
+
+    @GetMapping("/datepicker")
+    public ModelAndView date() {
+
+        return new ModelAndView("datepicker");
+
+    }
 }

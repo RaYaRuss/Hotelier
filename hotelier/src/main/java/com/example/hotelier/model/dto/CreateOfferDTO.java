@@ -25,7 +25,7 @@ public record CreateOfferDTO(
         @NotNull
         Integer nightsCount,
         // @StartDateNotInTheFuture
-        @NotNull
+        @NotEmpty
         String startDate) {
 
     public static CreateOfferDTO empty() {

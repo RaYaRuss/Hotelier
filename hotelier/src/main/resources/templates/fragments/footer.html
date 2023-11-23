@@ -1,163 +1,23 @@
 <!DOCTYPE html>
 <html lang="en"
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+</head>
 
 <body>
 
-<footer th:fragment="footer" class="footer bg-blur rounded">
-    <div class="container-fluid text-center">
-        <div class="h5 text-white">
-            &copy; Hotelier 2023. All rights reserved.
+<nav>
+    <footer
+            th:fragment="footer"
+            class="footer footer-expand-lg bg-dark footer-dark fixed-bottom">
+        <!-- Copyright -->
+        <div class="text-center p-4 text-secondary" style="background-color: rgba(30, 40, 49);">
+            © 2023 All rights reserved:
+            <a class="text-reset fw-bold " href="https://hotelier.com/">Hotelier</a>
         </div>
-    </div>
-</footer>
+        <!-- Copyright -->
+    </footer>
+</nav>
 
 </body>
 </html>
-
-<!-- Remove the container if you want to extend the Footer to full width. -->
-<!--<div class="container my-5">-->
-<!--    &lt;!&ndash; Footer &ndash;&gt;-->
-<!--    <footer th:fragment="footer"-->
-<!--            class="text-center text-lg-start text-white"-->
-<!--            style="background-color: #45526e"-->
-<!--    >-->
-<!--        &lt;!&ndash; Grid container &ndash;&gt;-->
-<!--        <div class="container p-4 pb-0">-->
-<!--            &lt;!&ndash; Section: Links &ndash;&gt;-->
-<!--            <section class="">-->
-<!--                &lt;!&ndash;Grid row&ndash;&gt;-->
-<!--                <div class="row">-->
-<!--                    &lt;!&ndash; Grid column &ndash;&gt;-->
-<!--                    <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">-->
-<!--                        <h6 class="text-uppercase mb-4 font-weight-bold">-->
-<!--                            Company name-->
-<!--                        </h6>-->
-<!--                        <p>-->
-<!--                            Here you can use rows and columns to organize your footer-->
-<!--                            content. Lorem ipsum dolor sit amet, consectetur adipisicing-->
-<!--                            elit.-->
-<!--                        </p>-->
-<!--                    </div>-->
-<!--                    &lt;!&ndash; Grid column &ndash;&gt;-->
-
-<!--                    <hr class="w-100 clearfix d-md-none" />-->
-
-<!--                    &lt;!&ndash; Grid column &ndash;&gt;-->
-<!--                    <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">-->
-<!--                        <h6 class="text-uppercase mb-4 font-weight-bold">Products</h6>-->
-<!--                        <p>-->
-<!--                            <a class="text-white">MDBootstrap</a>-->
-<!--                        </p>-->
-<!--                        <p>-->
-<!--                            <a class="text-white">MDWordPress</a>-->
-<!--                        </p>-->
-<!--                        <p>-->
-<!--                            <a class="text-white">BrandFlow</a>-->
-<!--                        </p>-->
-<!--                        <p>-->
-<!--                            <a class="text-white">Bootstrap Angular</a>-->
-<!--                        </p>-->
-<!--                    </div>-->
-<!--                    &lt;!&ndash; Grid column &ndash;&gt;-->
-
-<!--                    <hr class="w-100 clearfix d-md-none" />-->
-
-<!--                    &lt;!&ndash; Grid column &ndash;&gt;-->
-<!--                    <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">-->
-<!--                        <h6 class="text-uppercase mb-4 font-weight-bold">-->
-<!--                            Useful links-->
-<!--                        </h6>-->
-<!--                        <p>-->
-<!--                            <a class="text-white">Your Account</a>-->
-<!--                        </p>-->
-<!--                        <p>-->
-<!--                            <a class="text-white">Become an Affiliate</a>-->
-<!--                        </p>-->
-<!--                        <p>-->
-<!--                            <a class="text-white">Shipping Rates</a>-->
-<!--                        </p>-->
-<!--                        <p>-->
-<!--                            <a class="text-white">Help</a>-->
-<!--                        </p>-->
-<!--                    </div>-->
-
-<!--                    &lt;!&ndash; Grid column &ndash;&gt;-->
-<!--                    <hr class="w-100 clearfix d-md-none" />-->
-
-<!--                    &lt;!&ndash; Grid column &ndash;&gt;-->
-<!--                    <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">-->
-<!--                        <h6 class="text-uppercase mb-4 font-weight-bold">Contact</h6>-->
-<!--                        <p><i class="fas fa-home mr-3"></i> New York, NY 10012, US</p>-->
-<!--                        <p><i class="fas fa-envelope mr-3"></i> info@gmail.com</p>-->
-<!--                        <p><i class="fas fa-phone mr-3"></i> + 01 234 567 88</p>-->
-<!--                        <p><i class="fas fa-print mr-3"></i> + 01 234 567 89</p>-->
-<!--                    </div>-->
-<!--                    &lt;!&ndash; Grid column &ndash;&gt;-->
-<!--                </div>-->
-<!--                &lt;!&ndash;Grid row&ndash;&gt;-->
-<!--            </section>-->
-<!--            &lt;!&ndash; Section: Links &ndash;&gt;-->
-
-<!--            <hr class="my-3">-->
-
-<!--            &lt;!&ndash; Section: Copyright &ndash;&gt;-->
-<!--            <section class="p-3 pt-0">-->
-<!--                <div class="row d-flex align-items-center">-->
-<!--                    &lt;!&ndash; Grid column &ndash;&gt;-->
-<!--                    <div class="col-md-7 col-lg-8 text-center text-md-start">-->
-<!--                        &lt;!&ndash; Copyright &ndash;&gt;-->
-<!--                        <div class="p-3">-->
-<!--                            © 2020 Copyright:-->
-<!--                            <a class="text-white" href="https://mdbootstrap.com/"-->
-<!--                            >MDBootstrap.com</a-->
-<!--                            >-->
-<!--                        </div>-->
-<!--                        &lt;!&ndash; Copyright &ndash;&gt;-->
-<!--                    </div>-->
-<!--                    &lt;!&ndash; Grid column &ndash;&gt;-->
-
-<!--                    &lt;!&ndash; Grid column &ndash;&gt;-->
-<!--                    <div class="col-md-5 col-lg-4 ml-lg-0 text-center text-md-end">-->
-<!--                        &lt;!&ndash; Facebook &ndash;&gt;-->
-<!--                        <a-->
-<!--                                class="btn btn-outline-light btn-floating m-1"-->
-<!--                                class="text-white"-->
-<!--                                role="button"-->
-<!--                        ><i class="fab fa-facebook-f"></i-->
-<!--                        ></a>-->
-
-<!--                        &lt;!&ndash; Twitter &ndash;&gt;-->
-<!--                        <a-->
-<!--                                class="btn btn-outline-light btn-floating m-1"-->
-<!--                                class="text-white"-->
-<!--                                role="button"-->
-<!--                        ><i class="fab fa-twitter"></i-->
-<!--                        ></a>-->
-
-<!--                        &lt;!&ndash; Google &ndash;&gt;-->
-<!--                        <a-->
-<!--                                class="btn btn-outline-light btn-floating m-1"-->
-<!--                                class="text-white"-->
-<!--                                role="button"-->
-<!--                        ><i class="fab fa-google"></i-->
-<!--                        ></a>-->
-
-<!--                        &lt;!&ndash; Instagram &ndash;&gt;-->
-<!--                        <a-->
-<!--                                class="btn btn-outline-light btn-floating m-1"-->
-<!--                                class="text-white"-->
-<!--                                role="button"-->
-<!--                        ><i class="fab fa-instagram"></i-->
-<!--                        ></a>-->
-<!--                    </div>-->
-<!--                    &lt;!&ndash; Grid column &ndash;&gt;-->
-<!--                </div>-->
-<!--            </section>-->
-<!--            &lt;!&ndash; Section: Copyright &ndash;&gt;-->
-<!--        </div>-->
-<!--        &lt;!&ndash; Grid container &ndash;&gt;-->
-<!--    </footer>-->
-<!--    &lt;!&ndash; Footer &ndash;&gt;-->
-<!--</div>-->
-<!--&lt;!&ndash; End of .container &ndash;&gt;-->
