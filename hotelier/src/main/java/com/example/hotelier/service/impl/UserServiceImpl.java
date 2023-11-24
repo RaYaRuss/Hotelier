@@ -1,12 +1,10 @@
 package com.example.hotelier.service.impl;
 
-import com.example.hotelier.model.dto.UserLoginDTO;
 import com.example.hotelier.model.dto.UserRegistrationDTO;
 import com.example.hotelier.model.entity.AgencyEntity;
 import com.example.hotelier.model.entity.UserEntity;
 import com.example.hotelier.repository.UserRepository;
 import com.example.hotelier.service.UserService;
-import com.example.hotelier.util.CurrentUser;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -15,52 +13,17 @@ public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
-    private final CurrentUser currentUser;
 
-    public UserServiceImpl(UserRepository userRepository, PasswordEncoder passwordEncoder,
-                           CurrentUser currentUser) {
+    public UserServiceImpl(UserRepository userRepository, PasswordEncoder passwordEncoder) {
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
-        this.currentUser = currentUser;
+
     }
 
     @Override
     public void registerUser(UserRegistrationDTO userRegistrationDTO) {
 
         userRepository.save(map(userRegistrationDTO));
-    }
-
-    @Override
-    public boolean loginUser(UserLoginDTO userLoginDTO) {
-        var userEntity = userRepository
-                .findByEmail(userLoginDTO.email())
-                .orElse(null);
-
-        boolean loginSuccess = false;
-
-        if (userEntity != null) {
-
-            String rawPassword = userLoginDTO.password();
-            String encodedPassword = userEntity.getPassword();
-
-            loginSuccess =
-                    encodedPassword != null &&
-                            passwordEncoder.matches(rawPassword, encodedPassword);
-
-            if (loginSuccess) {
-
-                currentUser.setLogged(true)
-                        .setFirstName(userEntity.getFirstName())
-                        .setLastName(userEntity.getLastName());
-            } else {
-                currentUser.logout();
-            }
-        }
-        return loginSuccess;
-    }
-
-    public void logoutUser() {
-        currentUser.logout();
     }
 
 

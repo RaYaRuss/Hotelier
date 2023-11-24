@@ -1,6 +1,8 @@
 package com.example.hotelier.service.impl;
 
 
+import com.example.hotelier.model.dto.UserRegistrationDTO;
+import com.example.hotelier.model.entity.AgencyEntity;
 import com.example.hotelier.repository.AgencyRepository;
 import com.example.hotelier.service.AgencyService;
 import org.springframework.stereotype.Service;
@@ -15,4 +17,11 @@ public class AgencyServiceImpl implements AgencyService {
     }
 
 
+    @Override
+    public void safeAgencyEntity(UserRegistrationDTO userRegistrationDTO) {
+
+        AgencyEntity agency = new AgencyEntity();
+        agency.setName(userRegistrationDTO.travelAgencyName());
+        agencyRepository.save(agency);
+    }
 }
