@@ -12,6 +12,10 @@ spring:
     hiddenmethod:
       filter:
         enabled: 'true'
+
+  hotelier:
+   remember.me.key: ${REMEBER_ME_KEY:secretpass}
+
   datasource:
     driverClassName: com.mysql.cj.jdbc.Driver
     password: ${db_password}

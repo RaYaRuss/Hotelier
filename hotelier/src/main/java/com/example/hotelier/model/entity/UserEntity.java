@@ -42,9 +42,10 @@ public class UserEntity extends BaseEntity{
         return travelAgency;
     }
 
-    public void setTravelAgency(AgencyEntity travelAgency) {
+    public UserEntity setTravelAgency(AgencyEntity travelAgency) {
 
         this.travelAgency = travelAgency;
+        return this;
 
     }
 
@@ -52,8 +53,9 @@ public class UserEntity extends BaseEntity{
         return confirmPassword;
     }
 
-    public void setConfirmPassword(String confirmPassword) {
+    public UserEntity setConfirmPassword(String confirmPassword) {
         this.confirmPassword = confirmPassword;
+        return this;
     }
 
     public UserEntity setEmail(String email) {
@@ -103,6 +105,11 @@ public class UserEntity extends BaseEntity{
 
     public UserEntity setRoles(List<UserRoleEntity> roles) {
         this.roles = roles;
+        return this;
+    }
+
+    public UserEntity addRole(UserRoleEntity role) {
+        this.roles.add(role);
         return this;
     }
 }

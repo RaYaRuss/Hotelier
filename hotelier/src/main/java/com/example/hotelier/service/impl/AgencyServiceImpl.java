@@ -17,11 +17,5 @@ public class AgencyServiceImpl implements AgencyService {
     }
 
 
-    @Override
-    public void safeAgencyEntity(UserRegistrationDTO userRegistrationDTO) {
 
-        AgencyEntity agency = new AgencyEntity();
-        agency.setName(userRegistrationDTO.travelAgencyName());
-        agencyRepository.save(agency);
-    }
 }
