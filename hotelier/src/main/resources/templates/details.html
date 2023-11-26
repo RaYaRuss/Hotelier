@@ -14,31 +14,58 @@
 
 <div class="container-fluid">
     <h2 class="text-center text-white mt-5">Offer Details</h2>
-    <div class="offers row mx-auto d-flex flex-row justify-content-center">
+    <div th:object=$"{offer}" class="offers row mx-auto d-flex flex-row justify-content-center">
         <div class="offer card col-sm-2 col-md-3  col-lg-4 m-1 p-0" >
 
             <div class="card-body pb-1">
-                <h5 class="card-title">
-                    Available room</h5>
+
+                <h5 class="card-title" th:text="*{summary()}"></h5>
+<!--                <h5 class="card-title">-->
+<!--                    Available room</h5>-->
             </div>
             <ul class="offer-details list-group list-group-flush">
                 <li class="list-group-item">
-                    <div class="card-text"><span>• Room Type</span></div>
-                    <div class="card-text"><span>• Price</span></div>
-                    <div class="card-text"><span>• Hotel name</span></div>
-                    <div class="card-text"><span>• Start date</span></div>
-                    <div class="card-text"><span>• Nights count </span></div>
-                    <div class="card-text"><span>• Offer created</span></div>
-                    <div class="card-text"><span>• Seller - First and Last name</span></div>
+
+                    <div class="card-text">
+                        <span>• Room Type</span>
+                        <th:block th:text="*{hotel}">Amiral</th:block>
+                    </div>
+                    <div class="card-text">
+                        <span>• Price</span>
+                        <th:block th:text="*{price}">100</th:block>
+                    </div>
+                    <div class="card-text">
+                        <span>• Hotel name</span>
+                        <th:block th:text="*{roomType}">Single</th:block>
+                    </div>
+                    <div class="card-text">
+                        <span>• Start date</span>
+                        <th:block th:text="*{date}">12/01/2024</th:block>
+                    </div>
+                    <div class="card-text">
+                        <span>• Nights count </span>
+                        <th:block th:text="*{nightsCount}">2</th:block>
+                    </div>
+<!--                    <div class="card-text"><span>• Offer created</span>-->
+<!--                    </div>-->
+                    <div class="card-text">
+                        <span>• Seller - First and Last name</span>
+                        <th:block th:text="*{seller()}">Pesho Petrov</th:block>
+                    </div>
+
                 </li>
             </ul>
-            <div class="card-body">
-                <a class="card-link" href="/">Update</a>
-                <a class="card-link" href="/">Delete</a>
+            <div class="card-body" th:if="*{viewIsOwner()}">
+                <form th:method="delete"
+                th:action="@{/offer/{offerUUID}(offerUUID=*{id})}">
+                    <input type="submit" value="Delete" class="link card-link"/>
+<!--                <a class="card-link" href="/">Update</a>-->
+<!--                <a class="card-link" href="/">Delete</a>-->
+                </form>
             </div>
         </div>
         <div class="offer card col-sm-2 col-md-3  col-lg-4 m-1 p-0">
-            <img src="/" class="card-img-top"  alt="Room image">
+            <img th:src="*{imageUrl}" class="card-img-top"  alt="Room image">
         </div>
     </div>
 </div>

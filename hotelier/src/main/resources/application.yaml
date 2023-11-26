@@ -48,3 +48,10 @@ logging:
     blog: WARN
 server:
   port: 8080
+
+mail:
+  hotelier: "hotelier@example.com"
+  host: localhost
+  port: 1025
+  username: ${MAIL_USER:java}
+  password: ${MAIL_PASSWORD:java}

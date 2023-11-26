@@ -6,18 +6,18 @@ import com.example.hotelier.service.HotelChainService;
 import com.example.hotelier.service.OfferService;
 import com.example.hotelier.service.exception.ObjectNotFoundException;
 import jakarta.validation.Valid;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.UUID;
 
 @Controller
+@RequestMapping("/offer")
 public class OfferController {
 
     private final OfferService offerService;
@@ -30,7 +30,7 @@ public class OfferController {
 
 
 
-    @GetMapping("/offer/add")
+    @GetMapping("/add")
     public String add(Model model) {
 
         if (!model.containsAttribute("createOfferDTO")) {
@@ -41,10 +41,11 @@ public class OfferController {
         return("offer-add");
     }
 
-    @PostMapping("/offer/add")
+    @PostMapping("/add")
     public String add( @Valid CreateOfferDTO createOfferDTO,
                       BindingResult bindingResult,
-                       RedirectAttributes rAtt) {
+                       RedirectAttributes rAtt,
+                       @AuthenticationPrincipal UserDetails seller) {
 
         if(bindingResult.hasErrors()){
             rAtt.addFlashAttribute("createOfferDTO", createOfferDTO);
@@ -52,23 +53,27 @@ public class OfferController {
             return "redirect:/offer/add";
         }
 
-            UUID newOfferUUID = offerService.createOffer(createOfferDTO);
+            UUID newOfferUUID = offerService.createOffer(createOfferDTO, seller);
 
         return "redirect:/offer/" + newOfferUUID;
     }
 
-    @GetMapping("/offer/{uuid}")
-    public String details(@PathVariable("uuid") UUID uuid, Model model) {
+    @GetMapping("/{uuid}")
+    public String details(@PathVariable("uuid") UUID uuid, Model model,
+                          @AuthenticationPrincipal UserDetails viewer) {
 
-        OfferDetailDTO offerDetailDTO = offerService.getOfferDetail(uuid).orElseThrow(() ->
+        OfferDetailDTO offerDetailDTO = offerService.getOfferDetail(uuid, viewer)
+                .orElseThrow(() ->
                 new ObjectNotFoundException("Offer with uuid " + uuid + " not found!"));
 
         model.addAttribute("offer", offerDetailDTO);
+
         return "details";
     }
 
-    @DeleteMapping("/offer/{uuid}")
+    @DeleteMapping("/{uuid}")
     public String delete(@PathVariable("uuid") UUID uuid) {
+
         offerService.deleteOffer(uuid);
 
         return "redirect:/offers/all";

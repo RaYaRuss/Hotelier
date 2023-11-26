@@ -12,7 +12,9 @@ public record OfferDetailDTO (
         int nightsCount,
         BigDecimal price,
         RoomTypeEnum roomType,
-        String imageUrl
+        String imageUrl,
+        String seller,
+        boolean viewIsOwner
 
 ) {
     public String summary() {
