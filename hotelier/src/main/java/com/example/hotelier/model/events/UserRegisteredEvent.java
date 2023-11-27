@@ -16,4 +16,8 @@ public class UserRegisteredEvent extends ApplicationEvent {
     public String getUserEmail() {
         return userEmail;
     }
+
+    public String getUserNames() {
+        return userNames;
+    }
 }

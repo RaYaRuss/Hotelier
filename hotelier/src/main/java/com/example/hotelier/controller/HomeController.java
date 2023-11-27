@@ -15,10 +15,10 @@ public class HomeController {
     }
 
 
-    @GetMapping("/datepicker")
-    public ModelAndView date() {
-
-        return new ModelAndView("datepicker");
-
-    }
+//    @GetMapping("/datepicker")
+//    public ModelAndView date() {
+//
+//        return new ModelAndView("datepicker");
+//
+//    }
 }

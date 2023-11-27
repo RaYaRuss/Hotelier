@@ -21,6 +21,6 @@ public class ActivationLinkCleanUpScheduler {
     public void cleanUp() {
         System.out.println("Trigger clean up" + LocalDate.now());
 
-        userActivationService.cleapUpObsolateActivationLinks();
+        userActivationService.cleanUpObsoleteActivationLinks();
     }
 }
