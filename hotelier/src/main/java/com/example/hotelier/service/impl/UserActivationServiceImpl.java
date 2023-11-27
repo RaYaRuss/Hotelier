@@ -28,4 +28,9 @@ public class UserActivationServiceImpl implements UserActivationService {
         emailService.sendRegistrationEmail(event.getUserEmail(), event.getUserEmail());
     }
 
+    @Override
+    public void cleapUpObsolateActivationLinks() {
+        // TODO
+    }
+
 }
