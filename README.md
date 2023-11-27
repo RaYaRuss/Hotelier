@@ -9,10 +9,12 @@ Deployed to :
 ????
 
 Table of Contents:
+
 1/Features:
 - Regular Username/Password authentication. - Email validation link after registration.
 - All can view all offers.
 - Only registered travel agency members can view details, add offers, book offers.
+  
 2/Project Requirements
 
 3/Technologies Used :
