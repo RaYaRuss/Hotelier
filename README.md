@@ -1,8 +1,8 @@
-Welcome to my first application Hotelier! This project is created with Thymeleaf and Spring Boot.
+Welcome to my first application Hotelier! 
+This project is created with Thymeleaf and Spring Boot.
 
-It is a web application for rooms reservations.
+This is a web application for rooms reservations.
 It can be used by travel agencies to share prebooked accomodation.
-This can reduce the number of cancellations due to not sold rooms.
 
 
 Deployed to :
