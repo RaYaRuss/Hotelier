@@ -1,11 +1,14 @@
 package com.example.hotelier.service.impl;
 
 
+import com.example.hotelier.model.dto.AgencyDTO;
 import com.example.hotelier.model.dto.UserRegistrationDTO;
 import com.example.hotelier.model.entity.AgencyEntity;
 import com.example.hotelier.repository.AgencyRepository;
 import com.example.hotelier.service.AgencyService;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class AgencyServiceImpl implements AgencyService {
@@ -15,6 +18,8 @@ public class AgencyServiceImpl implements AgencyService {
     public AgencyServiceImpl(AgencyRepository agencyRepository) {
         this.agencyRepository = agencyRepository;
     }
+
+
 
 
 

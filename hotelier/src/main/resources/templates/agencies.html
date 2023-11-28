@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head th:replace="~{fragments/head}">
+</head>
+
+<body>
+
+
+    <div>
+        <nav th:replace="~{fragments/navbar}"></nav>
+    </div>
+
+
+<div class="container-fluid">
+    <h2 class="text-center text-white m-3 ">All Travel Agencies</h2>
+    <div class='row mb-4 d-flex justify-content-around '>
+
+        <div  class="offer card col-sm-6 col-md-3  col-lg-2 m-1 p-3 border border-secondary rounded">
+
+            <ul th:each="agency : ${agencies}">
+                <span> •   </span>
+                <li th:text= "${agency.name}"></li>
+            </ul>
+
+        </div>
+
+
+    </div>
+</div>
+
+
+
+
+    <div>
+        <nav th:replace="~{fragments/footer}"></nav>
+
+    </div>
+</div>
+</body>
+</html>

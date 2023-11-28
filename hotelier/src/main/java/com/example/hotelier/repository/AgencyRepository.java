@@ -6,4 +6,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface AgencyRepository extends JpaRepository<AgencyEntity, Long> {
+   AgencyEntity findByName(String name);
+
 }

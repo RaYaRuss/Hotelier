@@ -46,8 +46,8 @@ public class OfferServiceImpl implements OfferService {
                 .orElseThrow(() ->
                 new IllegalArgumentException("Hotel with id " + createOfferDTO.hotelId() + " not found!"));
 
-//        UserEntity sellerEntity = userRepository.findByEmail(seller.getUsername()).orElseThrow(() ->
-//                new IllegalArgumentException("User with email " + seller.getUsername() + " not found!"));
+        UserEntity sellerEntity = userRepository.findByEmail(seller.getUsername()).orElseThrow(() ->
+                new IllegalArgumentException("User with email " + seller.getUsername() + " not found!"));
 
         newOffer.setHotel(hotelEntity);
 

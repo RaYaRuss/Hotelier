@@ -1,5 +1,6 @@
 package com.example.hotelier.model.entity;
 
+import com.example.hotelier.model.dto.HotelDTO;
 import jakarta.persistence.*;
 
 import java.util.List;;

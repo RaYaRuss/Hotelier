@@ -35,10 +35,10 @@ VALUES
     (4, 'This hotel provides free Wi-Fi, soundproof rooms, a 24-hour bistro bar and underground parking. It is in Berlin''s lively Prenzlauer Berg district, a 10-minute walk from Alexanderplatz.', 'Ibis Berlin','TWO', 3 ),
     (5, 'Rosslyn Central Park Hotel enjoys a central location on the famous pedestrian Vitosha Boulevard, lined with trendy coffees, restaurants, artisan shops and boutiques.', 'Central Park Sofia','FIVE', 2 );
 
--- INSERT INTO offers (`id`, `description`, `image_url`, `nights_count`, `price`, `room_type`, `start_date`, `uuid`, `hotel_id`, seller_id )
--- VALUES
---     (1, 'Hotel Near Sofia Airport', 'C:\Users\MacBookAir\Desktop\SpringAdvanced-Oct-2023\hotelier\src\main\resources\static\img\hotelPics\ibisSofia.jpg', 3, 150, DOUBLE,  22/12/2023, 'b72e6550-e365-43bf-aab2-b57cafc2db7c', 1, 1),
---     (2, 'Near Sea Garden Varna', 'C:\Users\MacBookAir\Desktop\SpringAdvanced-Oct-2023\hotelier\src\main\resources\static\img\hotelPics\amiral.jpg', 4, 200, STUDIO,  23/01/2024, 'b72e6550-e365-43bf-aab2-b57cafc2db71', 2, 2),
---     (3, 'Downtown Varna', 'C:\Users\MacBookAir\Desktop\SpringAdvanced-Oct-2023\hotelier\src\main\resources\static\img\hotelPics\dimyat.jpg', 2, 120, SINGLE, 14/02/2024, 'b72e6550-e365-43bf-aab2-b57cafc2db72', 3, 1),
---     (4, 'Top hotel in Berlin city Center', 'C:\Users\MacBookAir\Desktop\SpringAdvanced-Oct-2023\hotelier\src\main\resources\static\img\hotelPics\ibisBerlin.jpg', 5, 190, SINGLE, 03/01/2024, 'b72e6550-e365-43bf-aab2-b57cafc2db73', 4, 2),
---     (5, 'One of the best City Hotels', 'C:\Users\MacBookAir\Desktop\SpringAdvanced-Oct-2023\hotelier\src\main\resources\static\img\hotelPics\centralParkSofia.jpg', 1, 240, DOUBLE,  04/02/2024, 'b72e6550-e365-43bf-aab2-b57cafc2db74', 5, 1);
+INSERT INTO offers (`id`, `description`, `image_url`, `nights_count`, `price`, `room_type`, `start_date`, `uuid`, `hotel_id`, `seller_id` )
+VALUES
+    (1, 'Hotel Near Sofia Airport', 'C:\Users\MacBookAir\Desktop\SpringAdvanced-Oct-2023\hotelier\src\main\resources\static\images\hotelPics\ibisSofia.jpg', 3, 150, 'DOUBLE',  '22/12/2023', 'b72e6550-e365-43bf-aab2-b57cafc2db7c', 1, 1),
+    (2, 'Near Sea Garden Varna', 'C:\Users\MacBookAir\Desktop\SpringAdvanced-Oct-2023\hotelier\src\main\resources\static\images\hotelPics\amiral.jpg', 4, 200, 'STUDIO',  '23/01/2024', 'b72e6550-e365-43bf-aab2-b57cafc2db71', 2, 2),
+    (3, 'Downtown Varna', 'C:\Users\MacBookAir\Desktop\SpringAdvanced-Oct-2023\hotelier\src\main\resources\static\images\hotelPics\dimyat.jpg', 2, 120, 'SINGLE', '14/02/2024', 'b72e6550-e365-43bf-aab2-b57cafc2db72', 3, 1),
+    (4, 'Top hotel in Berlin city Center', 'C:\Users\MacBookAir\Desktop\SpringAdvanced-Oct-2023\hotelier\src\main\resources\static\images\hotelPics\ibisBerlin.jpg', 5, 190, 'SINGLE', '03/01/2024', 'b72e6550-e365-43bf-aab2-b57cafc2db73', 4, 2),
+    (5, 'One of the best City Hotels', 'C:\Users\MacBookAir\Desktop\SpringAdvanced-Oct-2023\hotelier\src\main\resources\static\images\hotelPics\centralParkSofia.jpg', 1, 240, 'DOUBLE',  '04/02/2024', 'b72e6550-e365-43bf-aab2-b57cafc2db74', 5, 1);

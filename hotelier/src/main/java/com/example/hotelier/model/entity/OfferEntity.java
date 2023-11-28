@@ -40,9 +40,6 @@ import java.util.UUID;
         @Column(nullable = false)
         private BigDecimal price;
 
-        @Column
-        private String tradeFair;
-
         @Column(nullable = false)
         private String startDate;
 
@@ -115,15 +112,6 @@ import java.util.UUID;
 
         public OfferEntity setPrice(BigDecimal price) {
             this.price = price;
-            return this;
-        }
-
-        public String getTradeFair() {
-            return tradeFair;
-        }
-
-        public OfferEntity setTradeFair(String tradeFair) {
-            this.tradeFair = tradeFair;
             return this;
         }
 

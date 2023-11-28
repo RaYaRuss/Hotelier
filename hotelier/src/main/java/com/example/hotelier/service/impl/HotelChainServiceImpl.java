@@ -2,19 +2,24 @@ package com.example.hotelier.service.impl;
 
 import com.example.hotelier.model.dto.HotelChainDTO;
 import com.example.hotelier.model.dto.HotelDTO;
+import com.example.hotelier.model.entity.HotelChainEntity;
 import com.example.hotelier.model.entity.HotelEntity;
+import com.example.hotelier.repository.HotelChainRepository;
 import com.example.hotelier.repository.HotelRepository;
 import com.example.hotelier.service.HotelChainService;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
+
 @Service
 public class HotelChainServiceImpl  implements HotelChainService{
 
     private final HotelRepository hotelRepository;
+    private final HotelChainRepository hotelChainRepository;
 
-    public HotelChainServiceImpl(HotelRepository hotelRepository) {
+    public HotelChainServiceImpl(HotelRepository hotelRepository, HotelChainRepository hotelChainRepository) {
         this.hotelRepository = hotelRepository;
+        this.hotelChainRepository = hotelChainRepository;
     }
 
     @Override
@@ -33,4 +38,5 @@ public class HotelChainServiceImpl  implements HotelChainService{
         }
         return hotelChains.values().stream().toList();
     }
+
 }

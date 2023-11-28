@@ -6,5 +6,8 @@ import java.util.List;
 
 public interface HotelChainService {
 
+
     List<HotelChainDTO> getAllHotelChains();
+
+
 }

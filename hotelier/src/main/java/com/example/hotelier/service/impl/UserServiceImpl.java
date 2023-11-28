@@ -44,16 +44,20 @@ public class UserServiceImpl implements UserService {
     private UserEntity map(UserRegistrationDTO userRegistrationDTO){
 
         AgencyEntity currentAgency = new AgencyEntity();
+        Optional<AgencyEntity> currentId = null;
 
-        currentAgency.setName(userRegistrationDTO.travelAgencyName());
-        agencyRepository.save(currentAgency);
-
-
-        Optional<AgencyEntity> byId = agencyRepository.findById(currentAgency.getId());
+        if (agencyRepository.findAll().stream().anyMatch(e -> Boolean.parseBoolean(userRegistrationDTO.travelAgencyName()))) {
+            currentAgency = agencyRepository.findByName(userRegistrationDTO.travelAgencyName());
+            currentId = agencyRepository.findById(currentAgency.getId());
+        } else {
+            currentAgency.setName(userRegistrationDTO.travelAgencyName());
+            agencyRepository.save(currentAgency);
+            Optional<AgencyEntity> byId = agencyRepository.findById(currentAgency.getId());
+        }
 
 
         return new UserEntity()
-                .setActive(false)
+                .setActive(true)
                 .setFirstName(userRegistrationDTO.firstName())
                 .setLastName(userRegistrationDTO.lastName())
                 .setEmail(userRegistrationDTO.email())
