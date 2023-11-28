@@ -6,6 +6,7 @@ import com.example.hotelier.service.HotelChainService;
 import com.example.hotelier.service.OfferService;
 import com.example.hotelier.service.exception.ObjectNotFoundException;
 import jakarta.validation.Valid;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
@@ -62,22 +63,22 @@ public class OfferController {
     public String details(@PathVariable("uuid") UUID uuid, Model model,
                           @AuthenticationPrincipal UserDetails viewer) {
 
-        OfferDetailDTO offerDetailDTO = offerService.getOfferDetail(uuid, viewer)
-                .orElseThrow(() ->
-                new ObjectNotFoundException("Offer with uuid " + uuid + " not found!"));
+        OfferDetailDTO offerDetailDTO = offerService
+                .getOfferDetail(uuid, viewer)
+                .orElseThrow(() -> new ObjectNotFoundException("Offer with uuid " + uuid + " not found!"));
 
         model.addAttribute("offer", offerDetailDTO);
 
         return "details";
     }
 
+    @PreAuthorize("@offerServiceImpl.isOwner(#uuid, #principal.username)")
     @DeleteMapping("/{uuid}")
-    public String delete(@PathVariable("uuid") UUID uuid) {
+    public String delete(@PathVariable("uuid") UUID uuid,
+        @AuthenticationPrincipal UserDetails principal) {
 
         offerService.deleteOffer(uuid);
 
         return "redirect:/offers/all";
     }
-
-
 }

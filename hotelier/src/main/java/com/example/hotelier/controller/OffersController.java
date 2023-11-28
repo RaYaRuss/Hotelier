@@ -30,7 +30,7 @@ public class OffersController {
         Page<OfferSummaryDTO> allOffers = offerService.getAllOffers(pageable);
 
         model.addAttribute("offers", allOffers);
-        return("offers");
+        return ("offers");
     }
 
 

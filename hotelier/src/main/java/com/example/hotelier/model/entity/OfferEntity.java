@@ -43,6 +43,9 @@ import java.util.UUID;
         @Column(nullable = false)
         private String startDate;
 
+        public OfferEntity() {
+        }
+
         public UUID getUuid() {
             return uuid;
         }
@@ -124,6 +127,5 @@ import java.util.UUID;
             return this;
         }
 
-        public OfferEntity() {
-        }
+
     }

@@ -50,8 +50,9 @@ public class OfferServiceImpl implements OfferService {
                 new IllegalArgumentException("User with email " + seller.getUsername() + " not found!"));
 
         newOffer.setHotel(hotelEntity);
+        newOffer.setSeller(sellerEntity);
 
-        newOffer = offerRepository.save(newOffer);
+        offerRepository.save(newOffer);
 
         return newOffer.getUuid();
     }

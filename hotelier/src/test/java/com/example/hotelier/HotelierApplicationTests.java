@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfi
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-@SpringBootApplication(exclude={SecurityAutoConfiguration.class})
+
 class HotelierApplicationTests {
 
 	@Test
