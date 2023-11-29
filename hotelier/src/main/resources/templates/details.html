@@ -27,7 +27,7 @@
                         <span>• Hotel</span>
                         <th:block th:text="*{hotel}">Amiral</th:block>
                     </div>
-                    <div class="card-text"><span>• Price</span>
+                    <div class="card-text"><span>• Price Euro</span>
                         <th:block th:text="*{price}">100</th:block>
                     </div>
                     <div class="card-text"><span>• Room type</span>
@@ -37,13 +37,17 @@
                         <th:block th:text="*{date}">12/01/2024</th:block>
                     </div>
 
+                    <div class="card-text"><span>• Nights count</span>
+                        <th:block th:text="*{nightsCount()}">0</th:block>
+                    </div>
+
                     <div class="card-text"><span>• Seller</span>
                         <th:block th:text="*{seller()}">Petrov</th:block>
                     </div>
                 </li>
             </ul>
-            <div class="card-body">
-<!--                    th:if="*{viewerIsOwner()}" >-->
+            <div class="card-body"
+                    th:if="*{viewerIsOwner()}" >
 
                 <form th:method="delete"
                       th:action="@{/offer/{offerUUID}(offerUUID=*{id})}">
@@ -52,7 +56,7 @@
             </div>
         </div>
         <div class="offer card col-sm-2 col-md-3  col-lg-4 m-1 p-0">
-            <img th:src="*{imageUrl}" class="card-img-top"  alt="Car image">
+            <img th:src="*{imageUrl}" class="card-img-top"  alt="Room image">
         </div>
     </div>
 </div>

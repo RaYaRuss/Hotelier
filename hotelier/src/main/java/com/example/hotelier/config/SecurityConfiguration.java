@@ -3,7 +3,6 @@ package com.example.hotelier.config;
 import com.example.hotelier.model.enums.UserRoleEnum;
 import com.example.hotelier.repository.UserRepository;
 import com.example.hotelier.service.impl.HotelierUserDetailsService;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.security.servlet.PathRequest;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

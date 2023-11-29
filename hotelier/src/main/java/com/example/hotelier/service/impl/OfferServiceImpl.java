@@ -28,7 +28,6 @@ public class OfferServiceImpl implements OfferService {
 
     public final OfferRepository offerRepository;
     private final HotelRepository hotelRepository;
-    //private final MonitoringService monitoringService;
     private final UserRepository userRepository;
 
     public OfferServiceImpl(OfferRepository offerRepository, HotelRepository hotelRepository, UserRepository userRepository) {
@@ -75,6 +74,7 @@ public class OfferServiceImpl implements OfferService {
     @Override
     @Transactional
     public void deleteOffer(UUID offerUUID) {
+
         offerRepository.deleteByUuid(offerUUID);
     }
 

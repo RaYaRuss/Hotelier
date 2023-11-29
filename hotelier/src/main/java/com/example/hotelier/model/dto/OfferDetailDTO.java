@@ -14,7 +14,7 @@ public record OfferDetailDTO (
         RoomTypeEnum roomType,
         String imageUrl,
         String seller,
-        boolean viewIsOwner
+        boolean viewerIsOwner
 
 ) {
     public String summary() {
