@@ -5,9 +5,6 @@ This is a web application for rooms reservations.
 It can be used by travel agencies to share prebooked accomodation.
 
 
-Deployed to :
-????
-
 Table of Contents:
 
 1/Features:
