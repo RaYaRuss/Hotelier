@@ -13,8 +13,8 @@ spring:
       filter:
         enabled: 'true'
 
-  hotelier:
-   remember.me.key: ${REMEBER_ME_KEY:secretpass}
+#  hotelier:
+#   remember.me.key: ${REMEBER_ME_KEY:secretpass}
 
   datasource:
     driverClassName: com.mysql.cj.jdbc.Driver

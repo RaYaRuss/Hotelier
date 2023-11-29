@@ -13,7 +13,7 @@ spring:
 
 hotelier:
   default.admin.pass: test
-  remember.me.key: test
+#  remember.me.key: test
 
 
 logging:
@@ -27,4 +27,4 @@ mail:
   host: localhost
   port: 3333
   username: test@example.com
-  password: test
+  password: testpassword

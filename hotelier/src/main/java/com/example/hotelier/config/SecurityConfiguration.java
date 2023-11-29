@@ -19,8 +19,8 @@ import org.springframework.security.web.SecurityFilterChain;
 @EnableMethodSecurity
 public class SecurityConfiguration {
 
-    //private final String rememberMeKey;
-
+//    private final String rememberMeKey;
+//
 //    public SecurityConfiguration(@Value("${hotelier.remember.me.key}")
 //                                 String rememberMeKey) {
 //        this.rememberMeKey = rememberMeKey;

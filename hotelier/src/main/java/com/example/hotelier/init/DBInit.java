@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 public class DBInit implements CommandLineRunner {
 //    private final String defaultAdminPass;
 //
-//    public DBInit(@Value("${mobilele.default.admin.pass}") String defaultAdminPass) {
+//    public DBInit(@Value("${hotelier.default.admin.pass}") String defaultAdminPass) {
 //        this.defaultAdminPass = defaultAdminPass;
 //    }
     @Override
